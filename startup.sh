@@ -12,5 +12,4 @@ rm -f /tmp/.X*lock
 
 
 cp -rf /gauge.skel ~/.gauge
-ln -s /maven ~/.m2
 xvfb-run -n $SERVERNUM --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" "$@"
