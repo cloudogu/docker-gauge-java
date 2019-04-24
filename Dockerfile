@@ -1,7 +1,7 @@
 FROM maven:3.6-jdk-11
 MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 
-ENV VERSION=0.8.3 \
+ENV VERSION=1.0.4 \
     DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NONINTERACTIVE_SEEN=true \
     SCREEN_WIDTH=1360 \
@@ -14,7 +14,7 @@ RUN apt-get update -qqy \
  && apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-keys 023EDB0B \
  && echo deb https://dl.bintray.com/gauge/gauge-deb stable main | tee -a /etc/apt/sources.list \
  && apt-get update -qqy \
- && apt-get install -qqy gauge \
+ && apt-get install -qqy gauge=${VERSION} \
  && gauge install java \
  && gauge install html-report \
  && gauge install xml-report \
